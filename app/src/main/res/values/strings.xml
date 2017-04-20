@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Metodos</string>
+    <string name="button">Button</string>
+    <string name="gauss">Gauss</string>
+    <string name="lagrange">Lagrange</string>
+    <string name="minimosCuadrados">Mínimos Cuadrados</string>
+    <string name="bairstrow">Bairstrow</string>
+    <string name="biseccion">Bisección</string>
 </resources>
