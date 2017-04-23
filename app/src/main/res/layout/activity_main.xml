@@ -77,7 +77,7 @@
         android:onClick="irBiseccionInput"
 
         />
-
+//
     <Button
         android:text="@string/button"
         android:layout_width="wrap_content"
