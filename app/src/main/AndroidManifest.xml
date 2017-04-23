@@ -16,6 +16,12 @@
             </intent-filter>
         </activity>
         <activity android:name=".GaussInput"></activity>
+        <activity android:name=".LagrangeInput"></activity>
+        <activity android:name=".MinCuadInput"></activity>
+        <activity android:name=".BairstrowInput"></activity>}
+        <activity android:name=".BiseccionInput"></activity>
+
+
     </application>
 
 </manifest>

@@ -18,4 +18,21 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, GaussInput.class);
         startActivity(intent);
     }
+    public void irLagrangeInput(View view){
+        Intent intent = new Intent(this, GaussInput.class);
+        startActivity(intent);
+    }
+    public void irMinCuadInput(View view){
+        Intent intent = new Intent(this, GaussInput.class);
+        startActivity(intent);
+    }
+    public void irBairstrowInput(View view){
+        Intent intent = new Intent(this, GaussInput.class);
+        startActivity(intent);
+    }
+    public void irBiseccionInput(View view){
+        Intent intent = new Intent(this, GaussInput.class);
+        startActivity(intent);
+    }
+
 }
