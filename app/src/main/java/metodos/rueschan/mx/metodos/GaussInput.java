@@ -12,6 +12,8 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TableLayout;
 
+import java.util.ArrayList;
+
 // Bibliotecas
 
 public class GaussInput extends AppCompatActivity {
@@ -70,7 +72,69 @@ public class GaussInput extends AppCompatActivity {
     public void resolver(View view) {
         matriz.llenarMatriz(dibujoMatriz);
 
-        System.out.println(matriz.getDatos().toString());
+        // vvv DEBUG
+//        System.out.println(matriz.getDatos().toString());
+        // ^^^ DEBUG
+
+        gauss(matriz);
+    }
+
+    private void gauss(Matriz a) {
+        Matriz mat = a;
+        float valor;
+        ArrayList<Float> valores;
+
+        if (mat.getDatos().get(0).get(0) != 1f) {
+            valores = mat.getDatos().get(0);
+            for (int i = valores.size() - 1; i >= 0; i--) {
+                valor = valores.get(i) / mat.getDatos().get(0).get(0);
+                valores.set(i, valor);
+            }
+        }
+
+        // vvv DEBUG
+//        System.out.println(matriz.getDatos().toString());
+        // ^^^ DEBUG
+
+        float pivote = 0;
+        for (int i = 1; i < mat.getDatos().size(); i++) {
+            for (int j = i; j < mat.getDatos().size(); j++) {
+                valores = mat.getDatos().get(j);
+                pivote = valores.get(i - 1);
+//                System.out.println("Pivote: " + pivote);
+                for (int k = i - 1; k < valores.size(); k++) {
+                    valor = valores.get(k) - (pivote * mat.getDatos().get(i - 1).get(k));
+                    valores.set(k, valor);
+                    // vvv DEBUG
+//                    System.out.println("Step: " + matriz.getDatos().toString());
+//                    System.out.println("Valor: " + mat.getDatos().get(i - 1).get(k));
+                    // ^^^ DEBUG
+
+                }
+            }
+            valores = mat.getDatos().get(i);
+            for (int j = valores.size() - 1; j >= 0; j--) {
+                valor = valores.get(j) / mat.getDatos().get(i).get(i);
+                valores.set(j, valor);
+            }
+        }
+
+        // vvv DEBUG
+//        System.out.println("Step: " + matriz.getDatos().toString());
+        // ^^^ DEBUG
+
+
+//        for (int i = 1; i < mat.getDatos().size(); i++) {
+//            valores = mat.getDatos().get(i);
+//            for (int j = valores.size() - 1; j >= 0; j--) {
+//                valor = valores.get(j) / mat.getDatos().get(i).get(i);
+//                valores.set(j, valor);
+//            }
+//        }
+
+        // vvv DEBUG
+        System.out.println("Final: " + matriz.getDatos().toString());
+        // ^^^ DEBUG
     }
 
 }
