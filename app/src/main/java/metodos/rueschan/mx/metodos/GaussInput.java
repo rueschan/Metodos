@@ -1,5 +1,6 @@
 package metodos.rueschan.mx.metodos;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -77,12 +78,22 @@ public class GaussInput extends AppCompatActivity {
         // ^^^ DEBUG
 
         gauss(matriz);
+
+        Intent intent = new Intent(this, GaussResult.class);
+        startActivity(intent);
     }
+
+    private ArrayList<Matriz> matrices = new ArrayList<>();
 
     private void gauss(Matriz a) {
         Matriz mat = a;
         float valor;
         ArrayList<Float> valores;
+
+        // vvv DEBUG
+        System.out.println("INICIO: " + matriz.getDatos().toString());
+        // ^^^ DEBUG
+        GaussResult.steps.add(matriz.copy());
 
         if (mat.getDatos().get(0).get(0) != 1f) {
             valores = mat.getDatos().get(0);
@@ -90,10 +101,14 @@ public class GaussInput extends AppCompatActivity {
                 valor = valores.get(i) / mat.getDatos().get(0).get(0);
                 valores.set(i, valor);
             }
+            // vvv DEBUG
+            System.out.println("STEP 1: " + matriz.getDatos().toString());
+            // ^^^ DEBUG
+            GaussResult.steps.add(matriz.copy());
         }
 
         // vvv DEBUG
-//        System.out.println(matriz.getDatos().toString());
+//        System.out.println("STEP: " + matriz.getDatos().toString());
         // ^^^ DEBUG
 
         float pivote = 0;
@@ -106,17 +121,27 @@ public class GaussInput extends AppCompatActivity {
                     valor = valores.get(k) - (pivote * mat.getDatos().get(i - 1).get(k));
                     valores.set(k, valor);
                     // vvv DEBUG
-//                    System.out.println("Step: " + matriz.getDatos().toString());
+//                    System.out.println("STEP 2: " + matriz.getDatos().toString());
 //                    System.out.println("Valor: " + mat.getDatos().get(i - 1).get(k));
                     // ^^^ DEBUG
 
                 }
+                // vvv DEBUG
+                System.out.println("STEP 2: " + matriz.getDatos().toString());
+                // ^^^ DEBUG
+                GaussResult.steps.add(matriz.copy());
             }
+
             valores = mat.getDatos().get(i);
             for (int j = valores.size() - 1; j >= 0; j--) {
                 valor = valores.get(j) / mat.getDatos().get(i).get(i);
                 valores.set(j, valor);
             }
+
+            // vvv DEBUG
+            System.out.println("STEP 3: " + matriz.getDatos().toString());
+            // ^^^ DEBUG
+            GaussResult.steps.add(matriz.copy());
         }
 
         // vvv DEBUG
@@ -135,6 +160,7 @@ public class GaussInput extends AppCompatActivity {
         // vvv DEBUG
         System.out.println("Final: " + matriz.getDatos().toString());
         // ^^^ DEBUG
+        GaussResult.steps.add(matriz.copy());
     }
 
 }

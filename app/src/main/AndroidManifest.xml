@@ -15,13 +15,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".GaussInput"></activity>
-        <activity android:name=".LagrangeInput"></activity>
-        <activity android:name=".MinCuadInput"></activity>
-        <activity android:name=".BairstrowInput"></activity>}
-        <activity android:name=".BiseccionInput"></activity>
-
-
+        <activity android:name=".GaussInput" />
+        <activity android:name=".LagrangeInput" />
+        <activity android:name=".MinCuadInput" />
+        <activity android:name=".BairstrowInput" />
+        }
+        <activity android:name=".BiseccionInput" />
+        <activity android:name=".GaussResult"></activity>
     </application>
 
 </manifest>

@@ -20,6 +20,12 @@ public class Matriz {
 
     private TableLayout matriz;
 
+    public Matriz(int ancho, int alto, ArrayList<ArrayList<Float>> datos) {
+        this.ancho = ancho;
+        this.alto = alto;
+        this.datos = datos;
+    }
+
     public Matriz(int ancho, int alto) {
         this.ancho = ancho;
         this.alto = alto;
@@ -50,6 +56,10 @@ public class Matriz {
         return datos;
     }
 
+    public void setDatos(ArrayList<ArrayList<Float>> datos) {
+        this.datos = datos;
+    }
+
     public void llenarMatriz(TableLayout dibujoMatriz) {
         TableRow fila;
         EditText et;
@@ -69,5 +79,10 @@ public class Matriz {
         }
 
         datos = filas;
+    }
+
+    public Matriz copy() {
+        Matriz salida = new Matriz(ancho, alto, datos);
+        return salida;
     }
 }
