@@ -7,6 +7,9 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TableLayout;
 import android.widget.TableRow;
+import android.widget.TextView;
+
+import java.text.DecimalFormat;
 
 /**
  * Created by Rubén Escalante on 24/04/2017.
@@ -35,6 +38,37 @@ public class DibujaMatrices {
                 et.setId((i + 1) * (j + 1));
                 fila.addView(et);
                 et.setText("0");
+            }
+
+            espacioMatriz.addView(fila);
+        }
+
+        return espacioMatriz;
+    }
+
+    public static TableLayout dibujaResMatriz(Context context, Matriz matriz) {
+        espacioMatriz = new TableLayout(context);
+        espacioMatriz.setOrientation(LinearLayout.VERTICAL);
+        fila = new TableRow(context);
+
+        int ancho = matriz.getDimensiones()[0];
+        int alto = matriz.getDimensiones()[1];
+
+        for (int i = 0; i < alto; i++) {
+            fila = new TableRow(context);
+            for (int j = 0; j < ancho; j++) {
+                TextView tv = new TextView(context);
+                tv.setInputType(InputType.TYPE_NULL);
+                tv.setVisibility(View.VISIBLE);
+                String salida = String.format("%.4f", matriz.getDatos().get(i).get(j));
+                tv.setText(salida + "\t\t");
+                fila.addView(tv);
+//                EditText et = new EditText(context);
+//                et.setInputType(InputType.TYPE_CLASS_NUMBER);
+//                et.setVisibility(View.VISIBLE);
+//                et.setId((i + 1) * (j + 1));
+//                fila.addView(et);
+//                et.setText("0");
             }
 
             espacioMatriz.addView(fila);

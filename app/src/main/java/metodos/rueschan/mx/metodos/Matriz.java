@@ -47,6 +47,11 @@ public class Matriz {
         return matriz;
     }
 
+    public TableLayout dibujaResultado(Context context) {
+        matriz = DibujaMatrices.dibujaResMatriz(context, this);
+        return matriz;
+    }
+
     public int[] getDimensiones() {
         int[] dimensiones = {ancho, alto};
         return dimensiones;
@@ -82,7 +87,19 @@ public class Matriz {
     }
 
     public Matriz copy() {
-        Matriz salida = new Matriz(ancho, alto, datos);
-        return salida;
+        Matriz copia = new Matriz(ancho, alto);
+        ArrayList<ArrayList<Float>> datosCopia = new ArrayList<>(datos.size());
+        ArrayList<Float> fila;
+
+        for (ArrayList<Float> listas : datos) {
+            fila = new ArrayList<>(datos.get(0).size());
+            for (Float val : listas) {
+                fila.add(val);
+            }
+            datosCopia.add(fila);
+        }
+        copia.setDatos(datosCopia);
+
+        return copia;
     }
 }

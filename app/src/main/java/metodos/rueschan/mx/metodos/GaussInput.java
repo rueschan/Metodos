@@ -71,16 +71,20 @@ public class GaussInput extends AppCompatActivity {
     }
 
     public void resolver(View view) {
-        matriz.llenarMatriz(dibujoMatriz);
+        try {
+            matriz.llenarMatriz(dibujoMatriz);
 
-        // vvv DEBUG
+            // vvv DEBUG
 //        System.out.println(matriz.getDatos().toString());
-        // ^^^ DEBUG
+            // ^^^ DEBUG
 
-        gauss(matriz);
+            gauss(matriz);
 
-        Intent intent = new Intent(this, GaussResult.class);
-        startActivity(intent);
+            Intent intent = new Intent(this, GaussResult.class);
+            startActivity(intent);
+        } catch (NullPointerException e) {
+            System.out.println("No hay matriz para resolver.");
+        }
     }
 
     private ArrayList<Matriz> matrices = new ArrayList<>();
@@ -89,11 +93,15 @@ public class GaussInput extends AppCompatActivity {
         Matriz mat = a;
         float valor;
         ArrayList<Float> valores;
+        String texto;
+        int fila;
 
         // vvv DEBUG
         System.out.println("INICIO: " + matriz.getDatos().toString());
         // ^^^ DEBUG
-        GaussResult.steps.add(matriz.copy());
+        texto = "Matriz inicial:";
+        GaussResult.agregarTexto(texto);
+        GaussResult.agregarMatriz(matriz.copy());
 
         if (mat.getDatos().get(0).get(0) != 1f) {
             valores = mat.getDatos().get(0);
@@ -104,7 +112,12 @@ public class GaussInput extends AppCompatActivity {
             // vvv DEBUG
             System.out.println("STEP 1: " + matriz.getDatos().toString());
             // ^^^ DEBUG
-            GaussResult.steps.add(matriz.copy());
+            fila = 1;
+            texto = "Se divide la fila " + fila + " entre el valor en la posición ["
+                        + fila + "] de ésta misma. (La F" + fila + " se divide entre F" + fila
+                        + "[" + fila + "])";
+            GaussResult.agregarTexto(texto);
+            GaussResult.agregarMatriz(matriz.copy());
         }
 
         // vvv DEBUG
@@ -129,7 +142,13 @@ public class GaussInput extends AppCompatActivity {
                 // vvv DEBUG
                 System.out.println("STEP 2: " + matriz.getDatos().toString());
                 // ^^^ DEBUG
-                GaussResult.steps.add(matriz.copy());
+                fila = j + 1;
+                texto = "Se le resta a cada valor de la fila " + fila + " el resultado de la " +
+                        "resta del valor en esta misma posición menos la multiplicación del valor en la " +
+                        "posición " + (fila - 1) + " por el valor en esta misma posición de la fila anterior." +
+                        "\n(F" + fila + "[x] - (F" + fila + "[" + (fila - 1) + "] * F" + (fila - 1) + "[x]) )";
+                GaussResult.agregarTexto(texto);
+                GaussResult.agregarMatriz(matriz.copy());
             }
 
             valores = mat.getDatos().get(i);
@@ -141,7 +160,12 @@ public class GaussInput extends AppCompatActivity {
             // vvv DEBUG
             System.out.println("STEP 3: " + matriz.getDatos().toString());
             // ^^^ DEBUG
-            GaussResult.steps.add(matriz.copy());
+            fila = i + 1;
+            texto = "Se divide la fila " + fila + " entre el valor en la posición ["
+                    + fila + "] de ésta misma.\n(F" + fila + " / F" + fila
+                    + "[" + fila + "])";
+            GaussResult.agregarTexto(texto);
+            GaussResult.agregarMatriz(matriz.copy());
         }
 
         // vvv DEBUG
@@ -160,7 +184,9 @@ public class GaussInput extends AppCompatActivity {
         // vvv DEBUG
         System.out.println("Final: " + matriz.getDatos().toString());
         // ^^^ DEBUG
-        GaussResult.steps.add(matriz.copy());
+        texto = "Matriz final:";
+        GaussResult.agregarTexto(texto);
+        GaussResult.agregarMatriz(matriz.copy());
     }
 
 }
