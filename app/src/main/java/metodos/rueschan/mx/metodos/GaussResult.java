@@ -27,13 +27,23 @@ public class GaussResult extends AppCompatActivity {
 
     public void regresar(View view) {
         reset();
-        Intent intent = new Intent(this, GaussInput.class);
-        startActivity(intent);
+        Intent intent;
+        switch (MainActivity.getActividad()) {
+            case GAUSS:
+                intent = new Intent(this, GaussInput.class);
+                startActivity(intent);
+                break;
+            case JORDAN:
+                intent = new Intent(this, Jordan.class);
+                startActivity(intent);
+                break;
+        }
     }
 
     private void reset() {
         LinearLayout fondo = (LinearLayout) findViewById(R.id.activity_gauss_result);
         fondo.clearDisappearingChildren();
+        steps.clear();
     }
 
     private void dibujar(ArrayList<Object> objetos) {

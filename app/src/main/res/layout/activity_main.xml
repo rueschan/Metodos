@@ -23,7 +23,7 @@
         android:onClick="irGaussInput" />
 
     <Button
-        android:text="@string/lagrange"
+        android:text="Gauss Jordan"
         android:layout_width="wrap_content"
         android:id="@+id/button6"
         android:layout_below="@+id/button5"
@@ -32,7 +32,7 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:layout_height="70dp"
-        android:onClick="irLagrangeInput"
+        android:onClick="irJordan"
         />
 
 

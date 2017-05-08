@@ -21,7 +21,8 @@
         <activity android:name=".BairstrowInput" />
         }
         <activity android:name=".BiseccionInput" />
-        <activity android:name=".GaussResult"></activity>
+        <activity android:name=".GaussResult" />
+        <activity android:name=".Jordan"></activity>
     </application>
 
 </manifest>
