@@ -64,6 +64,7 @@ public class Inversa extends AppCompatActivity {
                 dibujoMultiplicable = multiplicable.dibujaMatriz(this);
                 dibujoMultiplicable.setVisibility(View.VISIBLE);
                 param = new ActionBar.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT);
+                // AQUI ES DONDE VA LA POSICION DE LA MATRIZ DIBUJADA
                 param.leftMargin = 320;
                 param.topMargin = 260;
                 param.gravity = Gravity.CENTER;
