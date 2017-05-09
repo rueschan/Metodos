@@ -33,7 +33,7 @@ public class DibujaMatrices {
             fila = new TableRow(context);
             for (int j = 0; j < ancho; j++) {
                 EditText et = new EditText(context);
-                et.setInputType(InputType.TYPE_CLASS_NUMBER);
+                et.setInputType(InputType.TYPE_NUMBER_FLAG_SIGNED | InputType.TYPE_CLASS_NUMBER);
                 et.setVisibility(View.VISIBLE);
                 et.setId((i + 1) * (j + 1));
                 fila.addView(et);
