@@ -12,7 +12,7 @@
     <LinearLayout
         xmlns:tools="http://schemas.android.com/tools"
         tools:context="metodos.rueschan.mx.metodos.GaussResult"
-        android:id="@+id/activity_gauss_result"
+        android:id="@+id/resultados"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -27,5 +27,6 @@
             android:layout_height="wrap_content"
             android:id="@+id/button10"
             android:onClick="regresar" />
+
     </LinearLayout>
 </ScrollView>

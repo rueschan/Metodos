@@ -33,9 +33,9 @@ public class Operaciones {
             System.out.println("STEP 1: " + matriz.getDatos().toString());
             // ^^^ DEBUG
             fila = 1;
-            texto = "Se divide la fila " + fila + " entre el valor en la posición ["
-                    + fila + "] de ésta misma. (La F" + fila + " se divide entre F" + fila
-                    + "[" + fila + "])";
+            texto = "Se divide la fila " + fila + " entre el valor en la\n" +
+                    "posición [" + fila + "] de ésta misma.\n" +
+                    "(La F" + fila + " se divide entre F" + fila + "[" + fila + "])";
             GaussResult.agregarTexto(texto);
             GaussResult.agregarMatriz(matriz.copy());
 
@@ -64,9 +64,10 @@ public class Operaciones {
                 System.out.println("STEP 2: " + matriz.getDatos().toString());
                 // ^^^ DEBUG
                 fila = j + 1;
-                texto = "Se le resta a cada valor de la fila " + fila + " el resultado de la " +
-                        "resta del valor en esta misma posición menos la multiplicación del valor en la " +
-                        "posición " + (fila - 1) + " por el valor en esta misma posición de la fila anterior." +
+                texto = "Se le resta a cada valor de la fila " + fila + " el resultado" +
+                        "\nde la resta del valor en esta misma posición menos" +
+                        "\nla multiplicación del valor en la posición " + (fila - 1) + "por" +
+                        "\nel valor en esta misma posición de la fila anterior." +
                         "\n(F" + fila + "[x] - (F" + fila + "[" + (fila - 1) + "] * F" + (fila - 1) + "[x]) )";
                 GaussResult.agregarTexto(texto);
                 GaussResult.agregarMatriz(matriz.copy());
@@ -82,9 +83,10 @@ public class Operaciones {
             System.out.println("STEP 3: " + matriz.getDatos().toString());
             // ^^^ DEBUG
             fila = i + 1;
-            texto = "Se divide la fila " + fila + " entre el valor en la posición ["
-                    + fila + "] de ésta misma.\n(F" + fila + " / F" + fila
-                    + "[" + fila + "])";
+            texto = "Se divide la fila " + fila + " entre el valor en la\n" +
+                    "posición [" + fila + "] de ésta misma.\n" +
+                    "(La F" + fila + " se divide entre F" + fila + "[" + fila + "])";
+
             GaussResult.agregarTexto(texto);
             GaussResult.agregarMatriz(matriz.copy());
         }

@@ -10,12 +10,13 @@ android:paddingRight="@dimen/activity_horizontal_margin"
 android:paddingTop="@dimen/activity_vertical_margin"
 tools:context="metodos.rueschan.mx.metodos.Inversa">
 
-<TextView
+    <TextView
     android:text="Ingrese las medidas de su matriz."
     android:layout_width="match_parent"
     android:layout_height="wrap_content" />
 
 <TableLayout
+    android:id="@+id/tableLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_centerHorizontal="true"
@@ -53,6 +54,7 @@ tools:context="metodos.rueschan.mx.metodos.Inversa">
             android:id="@+id/textView8"
             android:layout_weight="11.22"
             android:textAlignment="center" />
+
     </TableRow>
 
     <TableRow
@@ -67,17 +69,12 @@ tools:context="metodos.rueschan.mx.metodos.Inversa">
             android:id="@+id/button4"
             android:onClick="crearMatriz"
             android:layout_weight="1" />
-    </TableRow>
 
-    <TableRow
-        android:layout_width="0dp"
-        android:layout_weight="0.25"
-        android:layout_height="match_parent"
-        android:id="@+id/matriz" />
+    </TableRow>
 
 </TableLayout>
 
-<Button
+    <Button
     android:text="Resolver"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
@@ -110,6 +107,29 @@ tools:context="metodos.rueschan.mx.metodos.Inversa">
         android:layout_alignParentStart="true"
         android:layout_marginLeft="48dp"
         android:layout_marginStart="48dp" />
+
+    <RelativeLayout
+        android:id="@+id/matriz"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginTop="160dp"
+        android:layout_alignTop="@+id/tableLayout"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_alignTop="@+id/matriz"
+        android:layout_toRightOf="@+id/textView2"
+        android:layout_toEndOf="@+id/textView2"
+        android:layout_marginLeft="57dp"
+        android:layout_marginStart="57dp"
+        android:id="@+id/multiplicable">
+
+    </RelativeLayout>
 
 </RelativeLayout>
 

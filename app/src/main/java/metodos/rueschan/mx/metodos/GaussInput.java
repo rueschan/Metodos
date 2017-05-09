@@ -1,6 +1,7 @@
 package metodos.rueschan.mx.metodos;
 
 import android.content.Intent;
+import android.graphics.Point;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -56,8 +57,13 @@ public class GaussInput extends AppCompatActivity {
                 dibujoMatriz = matriz.dibujaMatriz(this);
                 dibujoMatriz.setVisibility(View.VISIBLE);
                 ActionBar.LayoutParams param = new ActionBar.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT);
-                param.leftMargin = 40;
-                param.topMargin = 260;
+                Point size = new Point();
+                getWindowManager().getDefaultDisplay().getSize(size);
+//                param.leftMargin = 320;
+                param.topMargin = size.y / 4;
+                System.out.println(size.y / 4);
+                param.leftMargin = 200;
+//                param.topMargin = 260;
                 param.gravity = Gravity.CENTER;
 
                 this.addContentView(dibujoMatriz, param);

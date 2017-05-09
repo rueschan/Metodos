@@ -8,7 +8,9 @@ import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TableLayout;
+import android.widget.TableRow;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -45,7 +47,7 @@ public class GaussResult extends AppCompatActivity {
     }
 
     private void reset() {
-        LinearLayout fondo = (LinearLayout) findViewById(R.id.activity_gauss_result);
+        LinearLayout fondo = (LinearLayout) findViewById(R.id.resultados);
         fondo.clearDisappearingChildren();
         resetSteps();
     }
@@ -55,10 +57,13 @@ public class GaussResult extends AppCompatActivity {
     }
 
     private void dibujar(ArrayList<Object> objetos) {
-        LinearLayout fondo = (LinearLayout) findViewById(R.id.activity_gauss_result);
+        LinearLayout fondo = (LinearLayout) findViewById(R.id.resultados);
         ActionBar.LayoutParams param;
+        TableLayout tabla = new TableLayout(this);
+        TableRow fila;
         int y;
         for (Object objeto : objetos) {
+            fila = new TableRow(this);
             if (objeto instanceof Matriz) {
                 Matriz matriz = (Matriz) objeto;
                 y = matriz.getDimensiones()[1] * 20;
@@ -71,7 +76,8 @@ public class GaussResult extends AppCompatActivity {
                 param.topMargin = y;
                 param.gravity = Gravity.CENTER;
 
-                fondo.addView(dibujoMatriz, param);
+                fila.setVisibility(View.VISIBLE);
+                fila.addView(dibujoMatriz);
             } else if (objeto instanceof String) {
                 String texto = (String) objeto;
 
@@ -84,59 +90,19 @@ public class GaussResult extends AppCompatActivity {
                 param.topMargin = 40;
                 param.gravity = Gravity.CENTER;
 
-                fondo.addView(tv, param);
+                fila.setVisibility(View.VISIBLE);
+                fila.addView(tv);
             }
+            tabla.setVisibility(View.VISIBLE);
+            tabla.addView(fila);
 
-//            TextView tv = new TextView(this);
-//            tv.setVisibility(View.VISIBLE);
-//            String texto;
-//
-//            ActionBar.LayoutParams param = new ActionBar.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT);
-//            param.leftMargin = 20;
-//            param.topMargin = y;
-//            param.gravity = Gravity.CENTER;
-//
-//            fondo.addView(tv, param);
-//            if (steps == 0) {
-////                TextView tv = new TextView(this);
-//                tv.setText("Matriz inicial.");
-////                tv.setVisibility(View.VISIBLE);
-////
-////                ActionBar.LayoutParams param = new ActionBar.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT);
-////                param.leftMargin = 20;
-////                param.topMargin = y;
-////                param.gravity = Gravity.CENTER;
-////
-////                fondo.addView(tv, param);
-//            } else if (steps == matrices.get(0).getDimensiones()[0] + 1) {
-//                tv.setText("Matriz final.");
-//            } else if (steps%2 != 0) {
-//                texto = "Se divide la fila " + fila + " entre el valor en la posición ["
-//                        + fila + "] de ésta misma. (La F" + fila + " se divide entre F" + fila
-//                        + "[" + fila + "])";
-//                tv.setText(texto);
-//                fila++;
-//            } else if (steps%2 == 0) {
-//                texto = "Se le resta a cada valor de la fila " + fila + " el resultado de la " +
-//                        "resta del valor en esta misma posición menos la multiplicación del valor en la " +
-//                        "posición " + (fila - 1) + " por el valor en esta misma posición de la fila anterior.";
-//                tv.setText(texto);
-//            }
-
-//            TableLayout dibujoMatriz = m.dibujaResultado(this);
-//
-//            dibujoMatriz.setVisibility(View.VISIBLE);
-//            param = new ActionBar.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT);
-//            param.leftMargin = 40;
-//            param.topMargin = y;
-//            param.gravity = Gravity.CENTER;
-//
-//            fondo.addView(dibujoMatriz, param);
-////            this.addContentView(dibujoMatriz, param);
-//
-////            y += m.getDimensiones()[1] * 60;
-//            steps++;
+            fila = new TableRow(this);
+            TextView espacio = new TextView(this);
+            espacio.setText("\n");
+            fila.addView(espacio);
+            tabla.addView(fila);
         }
+        fondo.addView(tabla);
     }
 
     public static void agregarMatriz(Matriz m) {

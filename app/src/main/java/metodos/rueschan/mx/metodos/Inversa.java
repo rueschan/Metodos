@@ -1,13 +1,16 @@
 package metodos.rueschan.mx.metodos;
 
 import android.content.Intent;
+import android.graphics.Point;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.EditText;
+import android.widget.RelativeLayout;
 import android.widget.TableLayout;
 
 public class Inversa extends AppCompatActivity {
@@ -19,6 +22,8 @@ public class Inversa extends AppCompatActivity {
     private Matriz multiplicable;
     private TableLayout dibujoMatriz;
     private TableLayout dibujoMultiplicable;
+    private RelativeLayout espacioMatriz;
+    private RelativeLayout espacioMultiplicable;
     private boolean hayMatriz;
 
     @Override
@@ -29,6 +34,8 @@ public class Inversa extends AppCompatActivity {
         dibujoMatriz = new TableLayout(this);
         dibujoMultiplicable = new TableLayout(this);
         tamanhoCampo = (EditText) findViewById(R.id.tamanho);
+        espacioMatriz = (RelativeLayout) findViewById(R.id.matriz);
+        espacioMultiplicable = (RelativeLayout) findViewById(R.id.multiplicable);
         tamanho = 0;
 
         hayMatriz = false;
@@ -55,21 +62,22 @@ public class Inversa extends AppCompatActivity {
                 dibujoMatriz.setVisibility(View.VISIBLE);
                 param = new ActionBar.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT);
                 param.leftMargin = 40;
-                param.topMargin = 260;
+//                param.topMargin = 260;
                 param.gravity = Gravity.CENTER;
 
-                this.addContentView(dibujoMatriz, param);
+                espacioMatriz.addView(dibujoMatriz);
+//                this.addContentView(dibujoMatriz, param);
 
                 multiplicable = new Matriz(1, tamanho);
                 dibujoMultiplicable = multiplicable.dibujaMatriz(this);
                 dibujoMultiplicable.setVisibility(View.VISIBLE);
                 param = new ActionBar.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT);
-                // AQUI ES DONDE VA LA POSICION DE LA MATRIZ DIBUJADA
-                param.leftMargin = 320;
-                param.topMargin = 260;
+                param.leftMargin = 40;
+//                param.topMargin = 260;
                 param.gravity = Gravity.CENTER;
 
-                this.addContentView(dibujoMultiplicable, param);
+                espacioMultiplicable.addView(dibujoMultiplicable);
+//                this.addContentView(dibujoMultiplicable, param);
 
                 hayMatriz = true;
             }
