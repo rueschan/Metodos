@@ -45,7 +45,6 @@
         android:ems="10"
         android:hint="Tamaño de la matriz"
         android:inputType="number"
-        android:singleLine="false"
         android:textAlignment="center" />
 
     <TextView
@@ -74,7 +73,7 @@
         android:id="@+id/cramerBoton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Ok"
+        android:text="Resultado"
         android:layout_alignParentBottom="true"
         android:layout_alignLeft="@+id/tamanoButton"
         android:layout_alignStart="@+id/tamanoButton" />

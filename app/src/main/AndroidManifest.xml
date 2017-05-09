@@ -31,6 +31,9 @@
         <activity
             android:name=".Inversa"
             android:label="Inversa" />
+        <activity
+            android:name=".MetodoSeidel"
+            android:label="Seidel" />
     </application>
 
 </manifest>

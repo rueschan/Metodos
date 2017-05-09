@@ -63,12 +63,7 @@ public class DibujaMatrices {
                 String salida = String.format("%.4f", matriz.getDatos().get(i).get(j));
                 tv.setText(salida + "\t\t");
                 fila.addView(tv);
-//                EditText et = new EditText(context);
-//                et.setInputType(InputType.TYPE_CLASS_NUMBER);
-//                et.setVisibility(View.VISIBLE);
-//                et.setId((i + 1) * (j + 1));
-//                fila.addView(et);
-//                et.setText("0");
+
             }
 
             espacioMatriz.addView(fila);
@@ -77,7 +72,5 @@ public class DibujaMatrices {
         return espacioMatriz;
     }
 
-//    public TableLayout getMatriz() {
-//        return espacioMatriz;
-//    }
+
 }

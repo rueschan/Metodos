@@ -43,8 +43,8 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, MetodoCramer.class);
         startActivity(intent);
     }
-    public void irBiseccionInput(View view){
-        Intent intent = new Intent(this, GaussInput.class);
+    public void irSeidel(View view){
+        Intent intent = new Intent(this, MetodoSeidel.class);
         startActivity(intent);
     }
 
