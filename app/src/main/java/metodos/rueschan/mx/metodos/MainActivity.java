@@ -39,8 +39,8 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, GaussInput.class);
         startActivity(intent);
     }
-    public void irBairstrowInput(View view){
-        Intent intent = new Intent(this, GaussInput.class);
+    public void irCramer(View view){
+        Intent intent = new Intent(this, MetodoCramer.class);
         startActivity(intent);
     }
     public void irBiseccionInput(View view){

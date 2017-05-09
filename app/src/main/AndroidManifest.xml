@@ -20,8 +20,8 @@
             android:label="Gauss" />
         <activity android:name=".LagrangeInput" />
         <activity android:name=".MinCuadInput" />
-        <activity android:name=".BairstrowInput" />
-        <activity android:name=".BiseccionInput" />
+        <activity android:name=".MetodoCramer" />
+        <activity android:name=".Cramer" />
         <activity
             android:name=".GaussResult"
             android:label="Resultado" />

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <Button
+        android:id="@+id/enterTamano"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/tamanoButton"
+        android:layout_alignStart="@+id/tamanoButton"
+        android:layout_below="@+id/tamano"
+        android:layout_marginTop="12dp"
+        android:text="Enter" />
+
+    <EditText
+        android:id="@+id/lista"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/tamano"
+        android:layout_alignStart="@+id/tamano"
+        android:layout_below="@+id/tamano"
+        android:layout_marginTop="101dp"
+        android:ems="10"
+        android:hint="Datos de la matriz"
+        android:inputType="numberSigned"
+        android:singleLine="false"
+        android:textAlignment="center" />
+
+    <Button
+        android:id="@+id/tamanoButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Enter"
+        android:layout_below="@+id/lista"
+        android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:id="@+id/tamano"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="103dp"
+        android:layout_toEndOf="@+id/back"
+        android:layout_toRightOf="@+id/back"
+        android:ems="10"
+        android:hint="Tamaño de la matriz"
+        android:inputType="number"
+        android:singleLine="false"
+        android:textAlignment="center" />
+
+    <TextView
+        android:id="@+id/resultado"
+        android:layout_width="250dp"
+        android:layout_height="85dp"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        android:layout_below="@+id/tamanoButton"
+        android:layout_toRightOf="@+id/back"
+        android:layout_toEndOf="@+id/back"
+        android:layout_above="@+id/back" />
+
+    <ImageButton
+        android:id="@+id/back"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="18dp"
+        android:layout_marginStart="18dp"
+        android:background="@mipmap/back"
+        android:layout_alignBottom="@+id/cramerBoton"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:id="@+id/cramerBoton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ok"
+        android:layout_alignParentBottom="true"
+        android:layout_alignLeft="@+id/tamanoButton"
+        android:layout_alignStart="@+id/tamanoButton" />
+
+
+</RelativeLayout>

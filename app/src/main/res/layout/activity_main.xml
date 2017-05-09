@@ -51,7 +51,7 @@
 
 
     <Button
-        android:text="@string/bairstrow"
+        android:text="Cramer"
         android:layout_width="wrap_content"
         android:layout_below="@+id/button7"
         android:layout_alignParentLeft="true"
@@ -60,7 +60,7 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:layout_height="70dp"
-        android:onClick="irBairstrowInput"
+        android:onClick="irCramer"
 
         />
 
