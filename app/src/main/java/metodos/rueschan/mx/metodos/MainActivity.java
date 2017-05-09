@@ -30,8 +30,9 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, Jordan.class);
         startActivity(intent);
     }
-    public void irLagrangeInput(View view){
-        Intent intent = new Intent(this, GaussInput.class);
+    public void irInversa(View view){
+        actividad = Actividades.INVERSA;
+        Intent intent = new Intent(this, Inversa.class);
         startActivity(intent);
     }
     public void irMinCuadInput(View view){

@@ -86,6 +86,19 @@ public class Matriz {
         datos = filas;
     }
 
+    public void llenarVacia() {
+        datos = new ArrayList<>();
+        ArrayList<Float> fila;
+
+        for (int i = 0; i < alto; i++) {
+            fila = new ArrayList<>();
+            for (int j = 0; j < ancho; j++) {
+                fila.add(0f);
+            }
+            datos.add(fila);
+        }
+    }
+
     public Matriz copy() {
         Matriz copia = new Matriz(ancho, alto);
         ArrayList<ArrayList<Float>> datosCopia = new ArrayList<>(datos.size());

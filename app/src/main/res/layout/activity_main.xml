@@ -37,7 +37,7 @@
 
 
     <Button
-        android:text="@string/minimosCuadrados"
+        android:text="Inversa"
         android:layout_width="wrap_content"
         android:id="@+id/button7"
         android:layout_below="@+id/button6"
@@ -46,7 +46,7 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:layout_height="70dp"
-        android:onClick="irMinCuadInput"
+        android:onClick="irInversa"
         />
 
 

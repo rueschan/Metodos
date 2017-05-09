@@ -8,4 +8,5 @@ public enum Actividades {
     MAIN,
     GAUSS,
     JORDAN,
+    INVERSA
 }

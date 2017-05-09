@@ -37,12 +37,20 @@ public class GaussResult extends AppCompatActivity {
                 intent = new Intent(this, Jordan.class);
                 startActivity(intent);
                 break;
+            case INVERSA:
+                intent = new Intent(this, Inversa.class);
+                startActivity(intent);
+                break;
         }
     }
 
     private void reset() {
         LinearLayout fondo = (LinearLayout) findViewById(R.id.activity_gauss_result);
         fondo.clearDisappearingChildren();
+        resetSteps();
+    }
+
+    public static void resetSteps() {
         steps.clear();
     }
 
@@ -73,7 +81,7 @@ public class GaussResult extends AppCompatActivity {
                 tv.setVisibility(View.VISIBLE);
                 param = new ActionBar.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT);
                 param.leftMargin = 20;
-                param.topMargin = 60;
+                param.topMargin = 40;
                 param.gravity = Gravity.CENTER;
 
                 fondo.addView(tv, param);
