@@ -8,6 +8,7 @@ import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.RelativeLayout;
 import android.widget.TableLayout;
 
 import java.util.ArrayList;
@@ -19,6 +20,7 @@ public class Jordan extends AppCompatActivity {
 
     private Matriz matriz;
     private TableLayout dibujoMatriz;
+    private RelativeLayout espacioMatriz;
     private boolean hayMatriz;
 
     @Override
@@ -28,6 +30,7 @@ public class Jordan extends AppCompatActivity {
 
         dibujoMatriz = new TableLayout(this);
         tamanhoCampo = (EditText) findViewById(R.id.tamanho);
+        espacioMatriz = (RelativeLayout) findViewById(R.id.matriz);
         tamanho = 0;
 
         hayMatriz = false;
@@ -55,7 +58,8 @@ public class Jordan extends AppCompatActivity {
                 param.topMargin = 260;
                 param.gravity = Gravity.CENTER;
 
-                this.addContentView(dibujoMatriz, param);
+//                this.addContentView(dibujoMatriz, param);
+                espacioMatriz.addView(dibujoMatriz);
                 hayMatriz = true;
 
             }

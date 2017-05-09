@@ -69,15 +69,9 @@ tools:context="metodos.rueschan.mx.metodos.Jordan">
             android:layout_weight="1" />
     </TableRow>
 
-    <TableRow
-        android:layout_width="0dp"
-        android:layout_weight="0.25"
-        android:layout_height="match_parent"
-        android:id="@+id/matriz" />
-
 </TableLayout>
 
-<Button
+    <Button
     android:text="Resolver"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
@@ -88,6 +82,17 @@ tools:context="metodos.rueschan.mx.metodos.Jordan">
     android:layout_alignParentRight="true"
     android:layout_alignParentEnd="true"
     android:onClick="resolver" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="168dp"
+        android:layout_alignTop="@+id/tableLayout3"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/matriz">
+
+    </RelativeLayout>
 
 </RelativeLayout>
 

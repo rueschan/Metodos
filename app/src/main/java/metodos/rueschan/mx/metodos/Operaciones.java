@@ -150,7 +150,8 @@ public class Operaciones {
             col++;
         }
         System.out.println("Matriz FINAL: " + mat.toString());
-        GaussResult.agregarTexto("El resultado de la matriz aplicando el método de Gauss-Jordan es: ");
+        GaussResult.agregarTexto("El resultado de la matriz aplicando el método de" +
+                "\nGauss-Jordan es: ");
         GaussResult.agregarMatriz(matriz);
 
         salida.setDatos(mat);

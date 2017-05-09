@@ -25,6 +25,7 @@ public class GaussInput extends AppCompatActivity {
 
     private Matriz matriz;
     private TableLayout dibujoMatriz;
+    private RelativeLayout espacioMatriz;
     private boolean hayMatriz;
 
     @Override
@@ -34,6 +35,7 @@ public class GaussInput extends AppCompatActivity {
 
         dibujoMatriz = new TableLayout(this);
         tamanhoCampo = (EditText) findViewById(R.id.tamanho);
+        espacioMatriz = (RelativeLayout) findViewById(R.id.matriz);
         tamanho = 0;
 
         hayMatriz = false;
@@ -57,16 +59,12 @@ public class GaussInput extends AppCompatActivity {
                 dibujoMatriz = matriz.dibujaMatriz(this);
                 dibujoMatriz.setVisibility(View.VISIBLE);
                 ActionBar.LayoutParams param = new ActionBar.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT);
-                Point size = new Point();
-                getWindowManager().getDefaultDisplay().getSize(size);
-//                param.leftMargin = 320;
-                param.topMargin = size.y / 4;
-                System.out.println(size.y / 4);
-                param.leftMargin = 200;
-//                param.topMargin = 260;
+                param.leftMargin = 320;
+                param.topMargin = 260;
                 param.gravity = Gravity.CENTER;
 
-                this.addContentView(dibujoMatriz, param);
+//                this.addContentView(dibujoMatriz, param);
+                espacioMatriz.addView(dibujoMatriz);
                 hayMatriz = true;
 
             }
