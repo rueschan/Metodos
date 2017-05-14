@@ -23,6 +23,24 @@ public class Operaciones {
         GaussResult.agregarTexto(texto);
         GaussResult.agregarMatriz(matriz.copy());
 
+        // TEST
+        ArrayList<Float> temp;
+        int pos = 1;
+        try {
+            while (mat.getDatos().get(0).get(0) == 0) {
+                temp = mat.getDatos().get(0);
+                mat.getDatos().set(0, mat.getDatos().get(pos));
+                mat.getDatos().set(pos, temp);
+                pos++;
+            }
+        } catch (IndexOutOfBoundsException e) {
+            GaussResult.resetSteps();
+            GaussResult.agregarTexto("LA MATRIZ INGRESADA ES INVALIDA");
+            System.out.println("Error :: " + e.getMessage());
+            return null;
+        }
+        // TEST
+
         if (mat.getDatos().get(0).get(0) != 1f) {
             valores = mat.getDatos().get(0);
             for (int i = valores.size() - 1; i >= 0; i--) {
@@ -50,6 +68,23 @@ public class Operaciones {
             for (int j = i; j < mat.getDatos().size(); j++) {
                 valores = mat.getDatos().get(j);
                 pivote = valores.get(i - 1);
+
+                // TEST
+                try {
+                    while (mat.getDatos().get(i).get(i) == 0) {
+                        temp = mat.getDatos().get(i);
+                        mat.getDatos().set(i, mat.getDatos().get(j + 1));
+                        mat.getDatos().set(j + 1, temp);
+                        pos++;
+                    }
+                } catch (IndexOutOfBoundsException e) {
+                    GaussResult.resetSteps();
+                    GaussResult.agregarTexto("LA MATRIZ INGRESADA ES INVALIDA");
+                    System.out.println("Error :: " + e.getMessage());
+                    return null;
+                }
+                // TEST
+
 //                System.out.println("Pivote: " + pivote);
                 for (int k = i - 1; k < valores.size(); k++) {
                     valor = valores.get(k) - (pivote * mat.getDatos().get(i - 1).get(k));
