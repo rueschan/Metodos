@@ -1,13 +1,10 @@
 package metodos.rueschan.mx.metodos;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -18,185 +15,112 @@ import java.util.Arrays;
  * Created by Adrian on 09/05/2017.
  */
 public class MetodoSeidel extends Activity{
-    private EditText tamanoTxt,numerosTxt,txtError, listaTxt;
-    private ArrayList<String> arregloM = new ArrayList<String>();
-    private ArrayList<String> arregloL = new ArrayList<String>();
-
-
-    private Integer tamano, bastaL = 0, bastaM = 0;
-    private TextView resultado;
-    private Button botonTamano, calcular ,botonDatos, botonError, botonLista;
+    private EditText txtDatos,txtTamaño, txtMat,txtError;
     private Float error;
-
+    private TextView resultado;
+    private Integer Tamaño, flagArr1 = 0, flagArr2 = 0;
+    private ArrayList<String> arreglo1 = new ArrayList<>();
+    private ArrayList<String> arreglo2 = new ArrayList<>();
+    private Button datosBtn,resolver, errorBtn, rangoBtn,tamañoBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        // Hide the Title bar of this activity screen
-        getWindow().requestFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_gauss_seidel);
 
-        ImageButton back = (ImageButton)findViewById(R.id.back);
-        botonDatos = (Button) findViewById(R.id.btnMatriz);
-        calcular  = (Button)findViewById(R.id.gauss_seidel);
-        botonTamano = (Button)findViewById(R.id.tamanoButton);
-        botonError = (Button)findViewById(R.id.botonError);
-        botonLista = (Button)findViewById(R.id.btnLista);
-
-        //Datos
-        numerosTxt = (EditText)findViewById(R.id.numero);
-        tamanoTxt = (EditText)findViewById(R.id.tamano);
+        datosBtn = (Button) findViewById(R.id.datosMatrizButt);
+        resolver = (Button)findViewById(R.id.Resolver);
+        tamañoBtn = (Button)findViewById(R.id.tamañoMatriz);
+        errorBtn = (Button)findViewById(R.id.Error);
+        rangoBtn = (Button)findViewById(R.id.Rango);
+        resultado = (TextView)findViewById(R.id.calculaResultado);
+        txtDatos = (EditText)findViewById(R.id.numero);
+        txtTamaño = (EditText)findViewById(R.id.tamaño);
         txtError = (EditText)findViewById(R.id.errorTxt);
-        listaTxt = (EditText)findViewById(R.id.lista);
-        //Resultado
-        resultado = (TextView)findViewById(R.id.resultado);
+        txtMat = (EditText)findViewById(R.id.matriz);
 
-        back.setOnClickListener(new View.OnClickListener() {
+        tamañoBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent inti = new Intent(getBaseContext(),MainActivity.class);
-                startActivity(inti);
-            }
-        });
+                String leeTamaño = txtTamaño.getText().toString().trim();
+                if(leeTamaño == null||leeTamaño.trim().equals("")){
+                }else if (leeTamaño.trim().equals("0")||leeTamaño.trim().equals("1"))((EditText) findViewById(R.id.tamaño)).setText(" ");
+                else{
+                    ((EditText) findViewById(R.id.tamaño)).setText(" ");
+                    if(tamañoBtn.isEnabled()) tamañoBtn.setEnabled(false);
+                    Tamaño = Integer.parseInt(leeTamaño);}}});
 
-        botonLista.setOnClickListener(new View.OnClickListener() {
+        rangoBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String getInput = listaTxt.getText().toString();
+                String leeRango = txtMat.getText().toString();
+                if(leeRango == null||leeRango.trim().equals(""))Toast.makeText(getBaseContext(),"Ingresa el Rango", Toast.LENGTH_SHORT).show();
+                else{
+                    ((EditText) findViewById(R.id.matriz)).setText(" ");
+                    arreglo2.add(leeRango.trim());
+                    flagArr1 += 1;
+                    if(flagArr1 >= Tamaño){
+                        if(rangoBtn.isEnabled()) {
+                            rangoBtn.setEnabled(false);
+                        }}}}});
 
-                if(getInput == null||getInput.trim().equals("")){
-                    Toast.makeText(getBaseContext(),"Dato faltante", Toast.LENGTH_SHORT).show();
-                } else{
-                    ((EditText) findViewById(R.id.lista)).setText(" ");
-                    arregloL.add(getInput.trim());
-                    bastaL += 1;
-                    if(bastaL >= tamano){
-                        if(botonLista.isEnabled()) {
-                            botonLista.setEnabled(false);
-                        }
-                    }
-                }
-            }
-        });
-
-        botonError.setOnClickListener(new View.OnClickListener() {
+        errorBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String getInput = txtError.getText().toString();
-
-                if(getInput == null||getInput.trim().equals("")){
-                    Toast.makeText(getBaseContext(),"Dato faltante", Toast.LENGTH_SHORT).show();
-                } else{
+                String leeError = txtError.getText().toString();
+                if(leeError == null||leeError.trim().equals(""))Toast.makeText(getBaseContext(),"Ingresa el error", Toast.LENGTH_SHORT).show();
+                 else{
                     ((EditText) findViewById(R.id.errorTxt)).setText(" ");
-                    Toast.makeText(getBaseContext(), "Error: "+getInput,Toast.LENGTH_LONG).show();
-                    if(botonError.isEnabled()) {
-                        botonError.setEnabled(false);
-                    }
+                    if(errorBtn.isEnabled()) {
+                        errorBtn.setEnabled(false);
+                    }error = Float.parseFloat(leeError) ;
+                }}});
 
-                    error = Float.parseFloat(getInput) ;
-                }
-            }
-        });
-
-        botonDatos.setOnClickListener(new View.OnClickListener() {
+        datosBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String getInput = numerosTxt.getText().toString();
-
-                if(getInput==null || getInput.trim().equals("")){
-                    Toast.makeText(getBaseContext(),"Dato faltante", Toast.LENGTH_SHORT).show();
-                }
+                String leeDatos = txtDatos.getText().toString();
+                if(leeDatos==null || leeDatos.trim().equals("")) Toast.makeText(getBaseContext(),"Llena la Matriz", Toast.LENGTH_SHORT).show();
                 else{
                     ((EditText) findViewById(R.id.numero)).setText(" ");
-                    arregloM.add(getInput.trim());
-                    bastaM += 1;
-                    if(bastaM >= (tamano+1) * tamano){
-                        if(botonDatos.isEnabled()) {
-                            botonDatos.setEnabled(false);
-                        }
-                    }
-                }
+                    arreglo1.add(leeDatos.trim());
+                    flagArr2 += 1;
+                    if(flagArr2 >= (Tamaño +1) * Tamaño){
+                        if(datosBtn.isEnabled()) {
+                            datosBtn.setEnabled(false);
+                        }}}}});
 
-                //Toast.makeText(getBaseContext(), arreglo.toString(),Toast.LENGTH_LONG).show();
-            }
-        });
-
-
-        calcular.setOnClickListener(new View.OnClickListener() {
+        resolver.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                GaussSeidel gausSeidel = new GaussSeidel();
-                //Log.d("********************** ", "" + tamano);
-                //Log.d("********************** ", "" + arreglo.toString());
-                Float[][] M = new Float[tamano][tamano+1];
-                float[] X = new float[tamano];
-                int y = 0;
-                int x = 0;
-
-                for (int i = 1; i <= arregloM.size(); i++) {
-                    M[x][y] = Float.parseFloat(arregloM.get(i-1));
-                    if (i % (tamano+1) == 0) {
-                        x++;
-                        y = 0;
-                    }else{
-                        y++;
-                    }
+                int y = 0,x=0;
+                GaussSeidel Seidel = new GaussSeidel();
+                Float[][] matrix = new Float[Tamaño][Tamaño +1];
+                float[] nMat = new float[Tamaño];
+                for (int i = 1; i <= arreglo1.size(); i++) {
+                    matrix[x][y] = Float.parseFloat(arreglo1.get(i-1));
+                    if (i % (Tamaño +1) == 0) {
+                        x++; y = 0;
+                    }else y++;}
+                for (int i = 0; i < arreglo2.size(); i++) {
+                    nMat[i] =  Float.parseFloat(arreglo2.get(i));
                 }
 
-                for (int i = 0; i < arregloL.size(); i++) {
-                    X[i] =  Float.parseFloat(arregloL.get(i));
+                if (Seidel.Dominante(matrix)){
+                    float[] res = Seidel.resolver(matrix, error,nMat);
+                    resultado.setText("Resultado \n" + Arrays.toString(res));
                 }
-
-
-                if (!gausSeidel.makeDominant(M)) {
-                    resultado.setText("No se puede calcular; Diagonal no dominante");
-                }else {
-                    float[] res = gausSeidel.solve(M, error,X);
-                    //Toast.makeText(getBaseContext(), "El resultado de la operacion es " + res, Toast.LENGTH_LONG).show();
-
-                    resultado.setText("El resultado de la operacion es\n" + Arrays.toString(res));
-                    // Log.d("********************** ", "RESULTADO  " + res);
-                }
-
-                arregloM.clear();
-                arregloL.clear();
-                bastaL = 0;
-                bastaM = 0;
-
-                if(!botonTamano.isEnabled() || !botonDatos.isEnabled() || !botonError.isEnabled() || !botonLista.isEnabled()) {
-                    botonTamano.setEnabled(true);
-                    botonDatos.setEnabled(true);
-                    botonError.setEnabled(true);
-                    botonLista.setEnabled(true);
-                }
-
-            }
-        });
-
-        botonTamano.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String getInput = tamanoTxt.getText().toString().trim();
-
-                if(getInput == null||getInput.trim().equals("")){
-                    Toast.makeText(getBaseContext(),"Dato faltante", Toast.LENGTH_SHORT).show();
-                }else if (getInput.trim().equals("0")||getInput.trim().equals("1")){
-                    ((EditText) findViewById(R.id.tamano)).setText(" ");
-                    Toast.makeText(getBaseContext(),"La matriz no puede ser de "+getInput+"x"+getInput, Toast.LENGTH_LONG).show();
-                }
-                else{
-                    ((EditText) findViewById(R.id.tamano)).setText(" ");
-                    Toast.makeText(getBaseContext(), "La matriz es de "+getInput+"x"+getInput,Toast.LENGTH_LONG).show();
-                    if(botonTamano.isEnabled()) {
-                        botonTamano.setEnabled(false);
-                    }
-                    tamano = Integer.parseInt(getInput);
-                }
-
-
-            }
-        });
+                else  resultado.setText("Diagonal no dominante");
+                arreglo1.clear();
+                arreglo2.clear();
+                flagArr1 = 0;
+                flagArr2 = 0;
+                if(!tamañoBtn.isEnabled() || !datosBtn.isEnabled() || !errorBtn.isEnabled() || !rangoBtn.isEnabled()) {
+                    tamañoBtn.setEnabled(true);
+                    datosBtn.setEnabled(true);
+                    errorBtn.setEnabled(true);
+                    rangoBtn.setEnabled(true);
+                }}});
     }
 }
 

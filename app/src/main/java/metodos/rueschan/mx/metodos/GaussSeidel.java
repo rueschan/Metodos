@@ -10,78 +10,54 @@ public class GaussSeidel {
 
     public GaussSeidel(){}
 
-    public boolean transformToDominant(int r, boolean[] V, int[] R, Float[][] M) {
-        int n = M.length;
-        if (r == M.length) {
-            Float[][] T = new Float[n][n + 1];
+    public boolean Dominante(Float[][] mat)  {
+        boolean[] lleno = new boolean[mat.length];
+        int[] columnas = new int[mat.length];
+        Arrays.fill(lleno, false);
+        return hacerDominante(0, lleno, columnas, mat);
+    }
+
+    public boolean hacerDominante(int r, boolean[] V, int[] R, Float[][] matriz) {
+        int n = matriz.length;
+        double suma=0;
+        if (r == matriz.length) {
+            Float[][] matrizTem = new Float[n][n + 1];
             for (int i = 0; i < R.length; i++) {
                 for (int j = 0; j < n + 1; j++)
-                    T[i][j] = M[R[i]][j];
-            }
-
-            M = T;
-
-            return true;
-        }
-
-        for (int i = 0; i < n; i++) {
-            if (V[i]) continue;
-
-            double sum = 0;
-
+                    matrizTem[i][j] = matriz[R[i]][j];
+            }matriz = matrizTem;
+            return true;}
+        for (int x = 0; x < n; x++) {
+            if (V[x]) continue;
             for (int j = 0; j < n; j++)
-                sum += Math.abs(M[i][j]);
-
-            if (2 * Math.abs(M[i][r]) > sum) { // diagonally dominant?
-                V[i] = true;
-                R[r] = i;
-
-                if (transformToDominant(r + 1, V, R, M))
+                suma += Math.abs(matriz[x][j]);
+            if (2 * Math.abs(matriz[x][r]) > suma) {
+                V[x] = true;
+                R[r] = x;
+                if (hacerDominante(r + 1, V, R, matriz))
                     return true;
-
-                V[i] = false;
-            }
-        }
-
+                V[x] = false;}}
         return false;
     }
 
-    public boolean makeDominant(Float[][] M)  {
-        boolean[] visited = new boolean[M.length];
-        int[] rows = new int[M.length];
 
-        Arrays.fill(visited, false);
 
-        return transformToDominant(0, visited, rows, M);
-    }
-
-    public float[] solve(Float[][] M, Float error, float[] X) {
-
-        float[] anterior =  X;//new double[M.length];// Prev
-        float[] actual = new float[M.length];
-        Float abs;
-
+    public float[] resolver(Float[][] matriz, Float error, float[] matAnterior) {
+        float[] anterior =  matAnterior;
+        float[] nuevaMat = new float[matriz.length];
         while (true) {
-            abs = 0.0f;
-            for (int i = 0; i < M.length; i++) {
-                Float sum = M[i][M.length]; // b_n
-                for (int j = 0; j < M.length; j++)
-                    if (j != i)
-                        sum -= M[i][j]*actual[j];
-                actual[i] = 1 / M[i][i] * sum;
-            }
-            for (int i = 0; i < actual.length; i++){
-                abs += Math.abs((actual[i] - anterior
-                        [i]) / anterior[i]);
-
-            }
-
-            if ((abs / actual.length) * 100 < error)
+            Float abs=0.0f;
+            for (int x = 0; x < matriz.length; x++) {
+                Float suma = matriz[x][matriz.length];
+                for (int y = 0; y < matriz.length; y++)
+                    if (y != x)
+                        suma -= matriz[x][y]*nuevaMat[y];
+                nuevaMat[x] = 1 / matriz[x][x] * suma;}
+            for (int i = 0; i < nuevaMat.length; i++){
+                abs += Math.abs((nuevaMat[i] - anterior
+                        [i]) / anterior[i]);}
+            if ((abs / nuevaMat.length) * 100 < error)
                 break;
-            anterior = actual;
-        }
-
-        return actual;
-    }
-}
+            anterior = nuevaMat;
+        }return nuevaMat;}}
 

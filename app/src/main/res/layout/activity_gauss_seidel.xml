@@ -2,124 +2,115 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent" android:layout_height="match_parent">
-    <TextView
-        android:id="@+id/resultado"
-        android:layout_width="270dp"
-        android:layout_height="140dp"
-        android:layout_above="@+id/back"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="17dp"
-        android:textAlignment="center"
-        android:textSize="20sp" />
+
 
     <EditText
-        android:id="@+id/lista"
-        android:layout_width="80dp"
+        android:id="@+id/matriz"
+        android:layout_width="120dp"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="Rango"
+        android:hint="Rango(Ej.0,1)"
         android:inputType="numberSigned"
         android:textAlignment="center"
-        android:layout_marginBottom="14dp"
-        android:layout_above="@+id/btnLista"
-        android:layout_alignLeft="@+id/btnLista"
-        android:layout_alignStart="@+id/btnLista" />
+        android:layout_below="@+id/datosMatrizButt"
+        android:layout_alignLeft="@+id/Rango"
+        android:layout_alignStart="@+id/Rango" />
+
+    <Button
+        android:id="@+id/Rango"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Enter"
+        tools:ignore="HardcodedText"
+        android:layout_below="@+id/matriz"
+        android:layout_alignLeft="@+id/calculaResultado"
+        android:layout_alignStart="@+id/calculaResultado" />
+
+    <Button
+        android:id="@+id/datosMatrizButt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/enter"
+        android:layout_below="@+id/tamaño"
+        android:layout_alignLeft="@+id/numero"
+        android:layout_alignStart="@+id/numero" />
 
     <EditText
         android:id="@+id/errorTxt"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/lista"
-        android:layout_alignBottom="@+id/lista"
-        android:layout_alignLeft="@+id/botonError"
-        android:layout_alignStart="@+id/botonError"
         android:ems="10"
         android:hint="Error"
         android:inputType="numberDecimal"
-        android:textAlignment="center" />
+        android:textAlignment="center"
+        android:layout_below="@+id/datosMatrizButt"
+        android:layout_alignRight="@+id/datosMatrizButt"
+        android:layout_alignEnd="@+id/datosMatrizButt"
+        android:layout_marginTop="10dp" />
 
     <EditText
         android:id="@+id/numero"
-        android:layout_width="80dp"
+        android:layout_width="120dp"
         android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/btnMatriz"
-        android:layout_alignRight="@+id/btnMatriz"
-        android:layout_alignTop="@+id/tamano"
         android:ems="10"
-        android:hint="Matriz"
+        android:hint="Datos Matriz"
         android:inputType="numberSigned"
-        android:textAlignment="center" />
+        android:textAlignment="center"
+        android:layout_alignBaseline="@+id/tamaño"
+        android:layout_alignBottom="@+id/tamaño"
+        android:layout_alignRight="@+id/calculaResultado"
+        android:layout_alignEnd="@+id/calculaResultado" />
 
     <Button
-        android:id="@+id/btnLista"
+        android:id="@+id/Error"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Enter"
-        android:layout_centerVertical="true"
-        android:layout_alignLeft="@+id/resultado"
-        android:layout_alignStart="@+id/resultado"
-        tools:ignore="HardcodedText" />
+        android:layout_alignLeft="@+id/errorTxt"
+        android:layout_alignStart="@+id/errorTxt"
+        android:layout_alignTop="@+id/Rango" />
+
+    <TextView
+        android:id="@+id/calculaResultado"
+        android:layout_width="270dp"
+        android:layout_height="140dp"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        android:layout_marginLeft="42dp"
+        android:layout_marginStart="42dp"
+        android:layout_above="@+id/Resolver"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <Button
-        android:id="@+id/botonError"
+        android:id="@+id/tamañoMatriz"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Error"
-        android:layout_alignBaseline="@+id/btnLista"
-        android:layout_alignBottom="@+id/btnLista"
-        android:layout_alignLeft="@+id/gauss_seidel"
-        android:layout_alignStart="@+id/gauss_seidel" />
+        android:text="Enter"
+        android:layout_below="@+id/tamaño"
+        android:layout_alignLeft="@+id/tamaño"
+        android:layout_alignStart="@+id/tamaño" />
 
     <EditText
-        android:id="@+id/tamano"
-        android:layout_width="90dp"
+        android:id="@+id/tamaño"
+        android:layout_width="140dp"
         android:layout_height="50dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="40dp"
         android:ems="10"
-        android:hint="Tamaño"
+        android:hint="Tamaño Matiz"
         android:inputType="number"
         android:textAlignment="center"
         android:layout_alignParentTop="true"
-        android:layout_alignLeft="@+id/tamanoButton"
-        android:layout_alignStart="@+id/tamanoButton" />
+        android:layout_alignLeft="@+id/matriz"
+        android:layout_alignStart="@+id/matriz" />
 
     <Button
-        android:id="@+id/tamanoButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Enter"
-        android:layout_below="@+id/tamano"
-        android:layout_alignRight="@+id/lista"
-        android:layout_alignEnd="@+id/lista" />
-
-    <Button
-        android:id="@+id/btnMatriz"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/enter"
-        android:layout_below="@+id/tamano"
-        android:layout_alignLeft="@+id/errorTxt"
-        android:layout_alignStart="@+id/errorTxt"
-        android:layout_marginTop="10dp" />
-
-    <ImageButton
-        android:id="@+id/back"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:background="@mipmap/back"
-        android:layout_alignParentBottom="true"
-        android:layout_alignLeft="@+id/resultado"
-        android:layout_alignStart="@+id/resultado"
-        android:layout_marginBottom="19dp" />
-
-    <Button
-        android:id="@+id/gauss_seidel"
+        android:id="@+id/Resolver"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Resultado"
-        android:layout_marginRight="34dp"
-        android:layout_marginEnd="34dp"
-        android:layout_alignBottom="@+id/back"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_marginBottom="30dp"
+        android:layout_alignParentBottom="true"
+        android:layout_toRightOf="@+id/matriz"
+        android:layout_toEndOf="@+id/matriz" />
 </RelativeLayout>

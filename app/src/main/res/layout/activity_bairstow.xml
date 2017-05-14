@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/resultadoBr"
+        android:layout_width="380dp"
+        android:layout_height="230dp"
+        android:textAlignment="center"
+        android:textSize="12sp"
+        android:layout_below="@+id/RButt"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:id="@+id/funcion"
+        android:layout_width="90dp"
+        android:layout_height="wrap_content"
+        android:text="Enter"
+        android:layout_below="@+id/EcuacionBr"
+        android:layout_alignLeft="@+id/EcuacionBr"
+        android:layout_alignStart="@+id/EcuacionBr" />
+
+    <Button
+        android:id="@+id/errorButt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Enter"
+        android:layout_below="@+id/error"
+        android:layout_alignLeft="@+id/error"
+        android:layout_alignStart="@+id/error" />
+
+
+    <EditText
+        android:id="@+id/error"
+        android:layout_width="90dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Error"
+        android:inputType="textPersonName|numberDecimal"
+        android:textAlignment="center"
+        android:layout_alignBaseline="@+id/Grado"
+        android:layout_alignBottom="@+id/Grado"
+        android:layout_alignLeft="@+id/s"
+        android:layout_alignStart="@+id/s"
+        android:layout_marginLeft="15dp"
+        android:layout_marginStart="15dp" />
+
+    <Button
+        android:id="@+id/gradoEc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Enter"
+        android:layout_below="@+id/Grado"
+        android:layout_marginLeft="13dp"
+        android:layout_marginStart="13dp" />
+
+    <Button
+        android:id="@+id/RButt"
+        android:layout_width="90dp"
+        android:layout_height="wrap_content"
+        android:text="Enter"
+        android:layout_below="@+id/r"
+        android:layout_alignLeft="@+id/errorButt"
+        android:layout_alignStart="@+id/errorButt" />
+
+    <EditText
+        android:id="@+id/r"
+        android:layout_width="90dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="R"
+        android:inputType="numberSigned|numberDecimal"
+        android:textAlignment="center"
+        android:layout_marginTop="14dp"
+        android:layout_below="@+id/funcion"
+        android:layout_alignRight="@+id/errorButt"
+        android:layout_alignEnd="@+id/errorButt" />
+
+    <EditText
+        android:id="@+id/s"
+        android:layout_width="90dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="S"
+        android:inputType="numberSigned|numberDecimal"
+        android:textAlignment="center"
+        android:layout_marginRight="70dp"
+        android:layout_marginEnd="70dp"
+        android:layout_marginBottom="16dp"
+        android:layout_above="@+id/funcion"
+        android:layout_alignRight="@+id/resultadoBr"
+        android:layout_alignEnd="@+id/resultadoBr" />
+
+    <Button
+        android:id="@+id/SButt"
+        android:layout_width="90dp"
+        android:layout_height="wrap_content"
+        android:text="Enter"
+        android:layout_alignBaseline="@+id/funcion"
+        android:layout_alignBottom="@+id/funcion"
+        android:layout_alignLeft="@+id/r"
+        android:layout_alignStart="@+id/r" />
+
+    <EditText
+        android:id="@+id/Grado"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:hint="Grado función"
+        android:inputType="number"
+        android:textAlignment="center"
+        android:layout_alignParentTop="true"
+        android:layout_alignLeft="@+id/gradoEc"
+        android:layout_alignStart="@+id/gradoEc" />
+
+    <Button
+        android:id="@+id/resolver"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:text="Resultado"
+        android:layout_above="@+id/resultadoBr"
+        android:layout_alignLeft="@+id/funcion"
+        android:layout_alignStart="@+id/funcion" />
+
+    <EditText
+        android:id="@+id/EcuacionBr"
+        android:layout_width="140dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Funcion M a m"
+        android:inputType="numberSigned|numberDecimal"
+        android:textAlignment="center"
+        android:layout_marginTop="33dp"
+        android:layout_below="@+id/gradoEc"
+        android:layout_alignLeft="@+id/gradoEc"
+        android:layout_alignStart="@+id/gradoEc" />
+
+
+</RelativeLayout>

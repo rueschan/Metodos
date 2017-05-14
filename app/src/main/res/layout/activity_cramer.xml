@@ -3,80 +3,74 @@
     android:layout_width="match_parent" android:layout_height="match_parent">
 
     <Button
-        android:id="@+id/enterTamano"
+        android:id="@+id/tamañoMatrizButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/tamanoButton"
-        android:layout_alignStart="@+id/tamanoButton"
-        android:layout_below="@+id/tamano"
-        android:layout_marginTop="12dp"
-        android:text="Enter" />
+        android:layout_marginTop="13dp"
+        android:text="Enter"
+        android:layout_below="@+id/tamaño"
+        android:layout_alignRight="@+id/tamaño"
+        android:layout_alignEnd="@+id/tamaño"
+        android:layout_alignLeft="@+id/tamañoMatriz"
+        android:layout_alignStart="@+id/tamañoMatriz" />
 
     <EditText
-        android:id="@+id/lista"
-        android:layout_width="wrap_content"
+        android:id="@+id/tamaño"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/tamano"
-        android:layout_alignStart="@+id/tamano"
-        android:layout_below="@+id/tamano"
-        android:layout_marginTop="101dp"
+        android:layout_marginTop="46dp"
         android:ems="10"
-        android:hint="Datos de la matriz"
-        android:inputType="numberSigned"
-        android:singleLine="false"
-        android:textAlignment="center" />
-
-    <Button
-        android:id="@+id/tamanoButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Enter"
-        android:layout_below="@+id/lista"
+        android:hint="Matriz cuadrada de nXn"
+        android:inputType="number"
+        android:textAlignment="center"
+        android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
 
     <EditText
-        android:id="@+id/tamano"
-        android:layout_width="wrap_content"
+        android:id="@+id/matriz"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="103dp"
-        android:layout_toEndOf="@+id/back"
-        android:layout_toRightOf="@+id/back"
+        android:layout_marginTop="46dp"
         android:ems="10"
-        android:hint="Tamaño de la matriz"
-        android:inputType="number"
-        android:textAlignment="center" />
-
-    <TextView
-        android:id="@+id/resultado"
-        android:layout_width="250dp"
-        android:layout_height="85dp"
+        android:hint="Llena la matriz"
+        android:inputType="numberSigned"
+        android:singleLine="false"
         android:textAlignment="center"
-        android:textSize="20sp"
-        android:layout_below="@+id/tamanoButton"
-        android:layout_toRightOf="@+id/back"
-        android:layout_toEndOf="@+id/back"
-        android:layout_above="@+id/back" />
-
-    <ImageButton
-        android:id="@+id/back"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_marginLeft="18dp"
-        android:layout_marginStart="18dp"
-        android:background="@mipmap/back"
-        android:layout_alignBottom="@+id/cramerBoton"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_below="@+id/tamañoMatrizButton"
+        android:layout_alignRight="@+id/tamañoMatrizButton"
+        android:layout_alignEnd="@+id/tamañoMatrizButton" />
 
     <Button
-        android:id="@+id/cramerBoton"
+        android:id="@+id/tamañoMatriz"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:text="Enter"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/matriz"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:id="@+id/resolverMetodo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Resultado"
         android:layout_alignParentBottom="true"
-        android:layout_alignLeft="@+id/tamanoButton"
-        android:layout_alignStart="@+id/tamanoButton" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="62dp" />
+
+    <TextView
+        android:id="@+id/calculaResultado"
+        android:layout_width="250dp"
+        android:layout_height="85dp"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        android:layout_above="@+id/resolverMetodo"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="55dp"
+        android:layout_marginEnd="55dp" />
+
+
 
 
 </RelativeLayout>

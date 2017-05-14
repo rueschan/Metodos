@@ -34,6 +34,9 @@
         <activity
             android:name=".MetodoSeidel"
             android:label="Seidel" />
+        <activity
+            android:name=".MetodoBairstow"
+            android:label="Bairstow" />
     </application>
 
 </manifest>

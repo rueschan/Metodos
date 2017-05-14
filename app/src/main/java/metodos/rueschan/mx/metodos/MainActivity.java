@@ -1,6 +1,5 @@
 package metodos.rueschan.mx.metodos;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -35,8 +34,8 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, Inversa.class);
         startActivity(intent);
     }
-    public void irMinCuadInput(View view){
-        Intent intent = new Intent(this, GaussInput.class);
+    public void irBairstow(View view){
+        Intent intent = new Intent(this, MetodoBairstow.class);
         startActivity(intent);
     }
     public void irCramer(View view){
