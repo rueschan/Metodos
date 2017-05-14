@@ -68,7 +68,7 @@ public  class Bairstow extends Activity{
             im[n-1] = Math.sqrt(-d)/2.0;
             im[n-2] = -im[n-1];
         }}
-
+// PAra el push
 
     public static void Derivada(double a[], double b[], double c[], double r, double s, int n) {
         int i;
